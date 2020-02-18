@@ -7,6 +7,7 @@ public class Deck{
    public Deck(String str, File f){
    
       if(str.equals("Full")){
+         //meeeeeeeeep
       
       
       
