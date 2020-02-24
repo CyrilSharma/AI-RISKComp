@@ -1,9 +1,13 @@
 import java.util.*;
   
-public class Hand{
+public class Hand
+{
    private int size;
    private ArrayList<Card> cards;
-   
+   private ArrayList<Card> infantry;
+   private ArrayList<Card> calvary;
+   private ArrayList<Card> artillery;
+  
    public Hand(){
       size = 0;
       cards = new ArrayList<Card>(); 
@@ -12,6 +16,21 @@ public class Hand{
    public void addCard(Card c){
       cards.add(c);
       size++;
+      if (c.getType().equals("artillery"))
+      {
+         artillery.add(c);
+         size++;
+      }
+      if (c.getType().equals("calvary"))
+      {
+         calvary.add(c);
+         size++;
+      }
+      if (c.getType().equals("infantry"))
+      {
+         infantry.add(c);
+         size++;
+      }
    }
    
    public int numCards(){
@@ -22,12 +41,22 @@ public class Hand{
       return cards;
    }
    
-   public boolean canTurnIn(){
-      if(cards.size() < 3){
-         return false;
+   public boolean canTurnIn(Player p){
+      if(artillery.size() >= 3)
+      {
+         return true;
       }
-      else{
-         //if 
+      if(calvary.size() >= 3)
+      {
+         return true;
+      }
+      if(infantry.size() >= 3)
+      {
+         return true;
+      }
+      if((infantry.size() >= 1) && (calvary.size() >= 1) && (infantry.size() >= 1))
+      {
+         return true;
       }
    }
    
@@ -37,9 +66,11 @@ public class Hand{
       return false;
    }
    
-   public int remove(int i1, int i2, int i3){
-      if(cards[i1].getType() == cards[i2].getType() && cards[i3].getType() == cards[i2].getType()){
-         return 
+   public int remove(int i1, int i2, int i3)
+   {
+      if(cards[i1].getType().equals(cards[i2].getType()) && cards[i3].getType().equals(cards[i2].getType()))
+      {
+      //return 
       }
    } 
    

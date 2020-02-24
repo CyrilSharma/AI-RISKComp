@@ -19,8 +19,11 @@ public class Territory{
       //add to log
    }
    
-   public void manageTroops(int x){
-      numTroops += x;
+   public void deployTroops(Territory t, Player p, int n)
+   {
+      isOccupied = true;
+      occupying = p;
+      n = numTroops;
    }
    
    public String getName(){
